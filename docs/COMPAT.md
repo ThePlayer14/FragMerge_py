@@ -6,7 +6,7 @@ Since the tool is based on the asmodean code, it's probably going to work with t
 |2009/04/02|5pb./Lass      | 11eyes CrossOver (XBOX360)      |
 |2009/08/27|5pb./CYBERFRONT| Memories Off 6 T-wave (XBOX360)       |
 |2009/08/27|5pb./CYBERFRONT| Memories Off 6 Next Relation (XBOX360)|
-|2009/10/15|5pb./Nitro+    | STEINS；GATE (XBOX360)           |
+|2009/10/15|5pb./Nitro+    | STEINS;GATE (XBOX360)           |
 |2010/03/25|5pb./Nitro+    | CHAOS;HEAD Love Chu☆Chu! (XBOX360) |
 |2010/07/29|5pb./CYBERFRONT| Memories Off Yubikiri no Kioku (XBOX360)       |
 |2011/06/16|5pb./Nitro+    | STEINS;GATE My Darling's Embrace (XBOX360) |
