@@ -35,7 +35,7 @@ from PIL import Image
 
 import fragmerge_core
 
-DEFAULT_WORKERS = os.cpu_count() or 1
+DEFAULT_WORKERS = os.cpu_count() or 4
 
 
 def _resolve_sources(fmt: str, extract_dir: str, idx: int) -> list[str] | None:
@@ -57,8 +57,8 @@ def _resolve_sources(fmt: str, extract_dir: str, idx: int) -> list[str] | None:
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _DLL_CANDIDATES = [
     os.path.join(_HERE, "xcompress.dll"),
-    os.path.join(_HERE, "..", "xcompress_test", "bin", "MSVC", "xcompress.dll"),
-    "/mnt/nvme0n1p1/newproject3/xcompress_test/bin/MSVC/xcompress.dll",
+    os.path.join(_HERE, "..", "xcompress_test", "bin", "libs", "xcompress.dll"),
+    "./libs/xcompress.dll",
 ]
 
 _DLL_PATH = next((os.path.abspath(c) for c in _DLL_CANDIDATES if os.path.exists(c)), None)
