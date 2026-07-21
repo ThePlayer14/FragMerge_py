@@ -42,7 +42,7 @@ Python reimplementation of asmodean's `exlnk4` merge tools for Xbox 360 games (1
 - Python 3.10+
 - `numpy`, `Pillow`, `PySide6`
 - `libmsxca.so` (build from `/extras/libmsxca.tar.gz`) — for `lnk4_extract.py`
-- `xcompress.dll` (x64) — for `lnk4_extract_xcompress.py` (Windows) or Wine (Linux)
+- `xcompress.dll` (x64) — for `lnk4_extract_xcompress.py` (Windows)
 
 ```bash
 pip install numpy Pillow PySide6
