@@ -16,15 +16,12 @@ Python reimplementation of asmodean's `exlnk4` merge tools for Xbox 360 games (1
 
 ```
 .
-├── main/
 │   ├── fragmerge_core.py          # Core logic (merge, parsers, debug dumps)
 │   ├── fragmerge_gui.py           # PySide6 viewer (uses generated Ui)
 │   ├── fragmerge_gui.ui           # Qt Designer layout (tabbed)
 │   ├── fragmerge_gui_ui.py        # Generated from .ui by pyside6-uic (rebuild on .ui change)
 │   ├── lnk4_extract.py            # LNK4 extractor (libmsxca)
 │   ├── lnk4_extract_xcompress.py  # LNK4 extractor (xcompress.dll, Windows)
-├── libs/                          # Prebuilt `libmsxca` library and an xcompress library with deps
-├── extras/                        # Extra utilities
 └── docs/                          # Documentation about the researches
 ```
 
