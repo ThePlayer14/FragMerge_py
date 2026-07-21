@@ -29,7 +29,7 @@ from PIL import Image
 
 import fragmerge_core
 
-DEFAULT_WORKERS = os.cpu_count() or 1
+DEFAULT_WORKERS = os.cpu_count() or 4
 
 
 def _detect_fmt(dat: bytes) -> str | None:
@@ -71,7 +71,7 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 _CANDIDATES = [
     os.path.join(_HERE, "libmsxca.so"),
     os.path.join(_HERE, "..", "libmsxca", "build", "libmsxca.so"),
-    "/mnt/nvme0n1p1/newproject3/libmsxca/build/libmsxca.so",
+    "./libs/libmsxca.so",
 ]
 _LIB = None
 for _c in _CANDIDATES:
@@ -79,7 +79,7 @@ for _c in _CANDIDATES:
         _LIB = ctypes.CDLL(os.path.abspath(_c))
         break
 if _LIB is None:
-    raise RuntimeError("libmsxca.so not found; build it from ../libmsxca first.")
+    raise RuntimeError("libmsxca.so not found; build it from ./extras/libmsxca first.")
 
 _LIB.msxca_decompress.argtypes = [
     ctypes.POINTER(ctypes.c_ubyte), ctypes.c_size_t,
