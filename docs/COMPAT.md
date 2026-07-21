@@ -13,3 +13,4 @@ Since the tool is based on the asmodean code, it's probably going to work with t
 |2011/09/29|CYBERFRONT     | code_18 (XBOX360)               |
 
 - 11eyes CrossOver, Steins;Gate, and code_18 verifiably works.
+- Apart from the 360 titles, SteinsGate (PC / Steam) is verifed to work with the one-by-one view method.
