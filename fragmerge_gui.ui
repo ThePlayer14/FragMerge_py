@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FragMergeApp</class>
+ <widget class="QMainWindow" name="FragMergeApp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FragMerge - slice reassembler</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="rootLayout">
+    <property name="leftMargin">
+     <number>8</number>
+    </property>
+    <property name="topMargin">
+     <number>8</number>
+    </property>
+    <property name="rightMargin">
+     <number>8</number>
+    </property>
+    <property name="bottomMargin">
+     <number>8</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="leftTabs">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabMerge">
+       <attribute name="title">
+        <string>Merge</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="mergeLayout">
+        <property name="leftMargin">
+         <number>8</number>
+        </property>
+        <property name="topMargin">
+         <number>8</number>
+        </property>
+        <property name="rightMargin">
+         <number>8</number>
+        </property>
+        <property name="bottomMargin">
+         <number>8</number>
+        </property>
+        <item>
+         <widget class="QGroupBox" name="formatGroup">
+          <property name="title">
+           <string>Format</string>
+          </property>
+          <layout class="QHBoxLayout" name="formatLayout">
+           <item>
+            <widget class="QRadioButton" name="radioChara">
+             <property name="text">
+              <string>11eyes chara</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioBg">
+             <property name="text">
+              <string>11eyes bg</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radio5pb">
+             <property name="text">
+              <string>5pb</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioSg">
+             <property name="text">
+              <string>sg (PC)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="formatSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="filesGroup">
+          <property name="title">
+           <string>Files</string>
+          </property>
+          <layout class="QVBoxLayout" name="filesLayout">
+           <item>
+            <widget class="QPushButton" name="btnSrc1">
+             <property name="text">
+              <string>Source image 1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="src1Label">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnSrc2">
+             <property name="visible">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Source image 2 (bg)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="src2Label">
+             <property name="visible">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnDat">
+             <property name="text">
+              <string>Descriptor .dat / .bin</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="datLabel">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="openRow">
+             <item>
+              <widget class="QPushButton" name="btnOpenAuto">
+               <property name="text">
+                <string>Open (auto)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnOpenFolder">
+               <property name="text">
+                <string>Open folder</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="scaleRow">
+             <item>
+              <widget class="QLabel" name="scaleLabel">
+               <property name="visible">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>5pb src scale:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="scaleEntry">
+               <property name="visible">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>auto</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="scaleHint">
+               <property name="visible">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>(auto/256/512/1024/2048)</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="descriptorsGroup">
+          <property name="title">
+           <string>Descriptors (from extraction sidecars)</string>
+          </property>
+          <layout class="QVBoxLayout" name="descriptorsLayout">
+           <item>
+            <widget class="QListWidget" name="descriptorList"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="listInfoLabel">
+             <property name="text">
+              <string>Open a folder to list its descriptors.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="actionButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="btnPreview">
+            <property name="text">
+             <string>Preview</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSave">
+            <property name="text">
+             <string>Save PNG/BMP</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="fragmentsGroup">
+          <property name="title">
+           <string>Fragments (toggle to include)</string>
+          </property>
+          <layout class="QVBoxLayout" name="fragmentsLayout">
+           <item>
+            <widget class="QScrollArea" name="fragScrollArea">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="fragInnerWidget">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>547</width>
+                <height>83</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="fragListLayout"/>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="fragBtnRow">
+             <item>
+              <widget class="QPushButton" name="btnFragAll">
+               <property name="text">
+                <string>All</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnFragNone">
+               <property name="text">
+                <string>None</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="statusLabel">
+          <property name="frameShape">
+           <enum>QFrame::Shape::Panel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Sunken</enum>
+          </property>
+          <property name="text">
+           <string>Load files, then Preview (or use Open).</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabDebug">
+       <attribute name="title">
+        <string>Debug</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="debugLayout">
+        <property name="leftMargin">
+         <number>8</number>
+        </property>
+        <property name="topMargin">
+         <number>8</number>
+        </property>
+        <property name="rightMargin">
+         <number>8</number>
+        </property>
+        <property name="bottomMargin">
+         <number>8</number>
+        </property>
+        <item>
+         <widget class="QGroupBox" name="dumpSingleGroup">
+          <property name="title">
+           <string>Single descriptor</string>
+          </property>
+          <layout class="QVBoxLayout" name="dumpSingleLayout">
+           <item>
+            <widget class="QPushButton" name="btnDumpSlices">
+             <property name="text">
+              <string>Dump slices (text grid)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnDumpImages">
+             <property name="text">
+              <string>Dump slice images (PNGs)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="dumpSingleInfo">
+             <property name="text">
+              <string>Uses the currently loaded format, source image(s) and descriptor.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="dumpAllGroup">
+          <property name="title">
+           <string>Batch: dump all descriptors in a folder</string>
+          </property>
+          <layout class="QVBoxLayout" name="dumpAllLayout">
+           <item>
+            <layout class="QHBoxLayout" name="dumpAllFmtRow">
+             <item>
+              <widget class="QLabel" name="dumpAllFmtLabel">
+               <property name="text">
+                <string>Format:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="dumpAllFmt">
+               <item>
+                <property name="text">
+                 <string>chara</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>bg</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>5pb</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>sg</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="dumpAllFmtSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="dumpAllWorkersLabel">
+               <property name="text">
+                <string>Workers:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="dumpAllWorkers">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>64</number>
+               </property>
+               <property name="value">
+                <number>1</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="dumpAllDirRow">
+             <item>
+              <widget class="QLineEdit" name="dumpAllDir">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>extraction folder (file_*.bin + file_*.png)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnDumpAllDir">
+               <property name="text">
+                <string>Browse…</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="dumpAllOutRow">
+             <item>
+              <widget class="QLineEdit" name="dumpAllOut">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>output folder for strips + manifests</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnDumpAllOut">
+               <property name="text">
+                <string>Browse…</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnDumpAllRun">
+             <property name="text">
+              <string>Run batch dump</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="dumpAllInfo">
+             <property name="text">
+              <string>Each descriptor becomes file_NNNN/file_NNNN_frag_MMM/ with strips + manifest.json.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="reconGroup">
+          <property name="title">
+           <string>Reconstruct fragments (per-fragment canvases)</string>
+          </property>
+          <layout class="QVBoxLayout" name="reconLayout">
+           <item>
+            <layout class="QHBoxLayout" name="reconFmtRow">
+             <item>
+              <widget class="QLabel" name="reconFmtLabel">
+               <property name="text">
+                <string>Format:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="reconFmt">
+               <item>
+                <property name="text">
+                 <string>chara</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>bg</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>5pb</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>sg</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="reconFmtSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="reconWorkersLabel">
+               <property name="text">
+                <string>Workers:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="reconWorkers">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>64</number>
+               </property>
+               <property name="value">
+                <number>1</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="reconDirRow">
+             <item>
+              <widget class="QLineEdit" name="reconDir">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>extraction folder (file_*.bin + file_*.png)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnReconDir">
+               <property name="text">
+                <string>Browse…</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="reconOutRow">
+             <item>
+              <widget class="QLineEdit" name="reconOut">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>output folder for per-fragment canvases</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnReconOut">
+               <property name="text">
+                <string>Browse…</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnReconRun">
+             <property name="text">
+              <string>Run reconstruct</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="reconInfo">
+             <property name="text">
+              <string>Each descriptor's fragment fi is rendered into its own canvas: file_NNNN/file_NNNN_frag_MMM/frag_MMM.png.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="debugSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="rightLayout">
+      <item>
+       <widget class="QLabel" name="previewLabel">
+        <property name="text">
+         <string>Preview</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="zoomRow">
+        <item>
+         <widget class="QCheckBox" name="whiteBgCheck">
+          <property name="toolTip">
+           <string>Composite the preview over opaque white instead of transparent.</string>
+          </property>
+          <property name="text">
+           <string>White background</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnZoomOut">
+          <property name="text">
+           <string>−</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnZoomReset">
+          <property name="text">
+           <string>100%</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnZoomIn">
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="zoomLabel">
+          <property name="text">
+           <string>fit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="zoomSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QScrollArea" name="canvasScrollArea">
+        <property name="styleSheet">
+         <string notr="true">background:#222</string>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="canvasScrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>583</width>
+           <height>672</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="canvasLayout">
+          <item>
+           <widget class="QLabel" name="canvasLabel">
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
